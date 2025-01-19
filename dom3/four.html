@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: #212121; color:#fff;">
+  <ul class="language">
+    <li>javascript</li>
+  </ul>
+  
+</body>
+<script>
+function addLang(lang){
+  const item=document.createElement('li');
+  item.innerHTML=lang;
+  document.querySelector('.language').appendChild(item);
+}
+addLang('python');
+addLang('java');
+
+function addoptimizedLang(lang){
+  const item =document.createElement('li');
+  item.appendChild(document.createTextNode(lang));
+  document.querySelector('.language').appendChild(item);
+}
+addoptimizedLang('c++');
+const secondLang=document.querySelector('li:nth-child(2)');
+console.log(secondLang);
+const thirdLang=document.querySelector('li:first-child');
+console.log(thirdLang);
+thirdLang.textContent='hello dosto';
+const newele=document.createElement('li');
+newele.textContent='new element';
+document.querySelector('.language').appendChild(newele);
+secondLang.outerHTML='<li>hello</li>';
+secondLang.remove();
+
+</script>
+</html>
