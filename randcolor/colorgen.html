@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random color generator</title>
+</head>
+<body id="body">
+  <h1>Hello everyone , want to see something crazy hit the start button </h1>
+  <h2>Current color is :<span id ="colorName">#212121</span> </h2>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <script>
+    let interval;
+    let change=function(){
+      let color="#";
+    let hex='0123456789ABCDEF';  
+      for(let i=0;i<6;i++){
+        color+=hex[Math.floor(Math.random()*16)];
+      }
+      return color;
+    };
+    let changestart=function(){
+      let colorname=document.getElementById('colorName');
+      colorname.innerHTML=change();
+      document.getElementById("body").style.backgroundColor=change();
+
+    }
+    let start=document.getElementById('start');
+    start.addEventListener('click',function(){
+      console.log("cliced");
+       interval=setInterval(changestart,2000);
+    });
+    let changestop=function(){
+      document.getElementById("body").style.backgroundColor="White";
+
+    }
+    let stop=document.getElementById('stop');
+    stop.addEventListener('click',function(){
+      console.log("stopClicked");
+      clearInterval(interval);
+      interval=null;
+      changestop();
+      let colorname=document.getElementById('colorName');
+      colorname.innerHTML='#212121';
+    })
+
+  </script>
+
+
+  
+</body>
+</html>
